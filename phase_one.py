@@ -1,6 +1,6 @@
 import torch
 from torchvision import models, transforms
-from PIL import Image
+# from PIL import Image
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np

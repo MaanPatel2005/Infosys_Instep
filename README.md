@@ -8,4 +8,7 @@ conda install pytorch torchvision torchaudio -c pytorch
 
 conda install -c conda-forge opencv
 
-pip install git+https://github.com/ultralytics/yolov5.git
+git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+
+pip install -r requirements.txt

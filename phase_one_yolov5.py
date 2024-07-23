@@ -82,11 +82,13 @@ while True:
             if kp[2] > 0.5:  # Only draw keypoints with high confidence
                 cv2.circle(frame, (int(kp[1] * (x2 - x1) + x1), int(kp[0] * (y2 - y1) + y1)), 5, (0, 0, 255), -1)
 
-        left_shoulder = keypoints[5]
-        right_shoulder = keypoints[6]
+        left_shoulder = keypoints[4]
+        right_shoulder = keypoints[5]
         midpoint_x = (left_shoulder[1] + right_shoulder[1])/2
         midpoint_y = (left_shoulder[0] + right_shoulder[0])/2
         cv2.circle(frame, (int(midpoint_x * (x2 - x1) + x1), int(midpoint_y * (y2 - y1) + y1)), 5, (0, 255, 0), -1)
+
+
     cv2.imshow('YOLOv5 + PoseNet - Person Detection & Direction', frame)
 
     # Quit with q

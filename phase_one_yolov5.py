@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import tensorflow as tf
 import tensorflow_hub as hub
+confidence = 0.7
 
 # Load YOLOv5 model
 model = torch.hub.load('ultralytics/yolov5', 'yolov5n', pretrained=True)
@@ -33,7 +34,7 @@ def get_direction(keypoints):
     left_ear = keypoints[3]
     right_ear = keypoints[4]
 
-    if nose[2] > 0.7 and left_eye[2] > 0.7 and right_eye[2] > 0.7:
+    if nose[2] > confidence and left_eye[2] > confidence and right_eye[2] > confidence:
         eye_diff = left_eye[1] - right_eye[1]
         if abs(eye_diff) < 0.03:  # Adjust threshold as needed
             return "Towards"
@@ -41,7 +42,7 @@ def get_direction(keypoints):
             return "Left"
         else:
             return "Right"
-    elif nose[2] > 0.7 and left_ear[2] > 0.7 and right_ear[2] > 0.7:
+    elif nose[2] > confidence and left_ear[2] > confidence and right_ear[2] > confidence:
         ear_diff = left_ear[1] - right_ear[1]
         if ear_diff > 0:
             return "Left"

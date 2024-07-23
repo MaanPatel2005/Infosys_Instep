@@ -1,3 +1,4 @@
+# https://www.kaggle.com/code/sciencelabwork/simple-application-of-movenet      This is documentation of the model we are using
 import torch
 import cv2
 import numpy as np
